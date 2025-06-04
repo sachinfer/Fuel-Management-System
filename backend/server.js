@@ -6,8 +6,13 @@ const port = process.env.PORT || 3000;
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// Import authentication routes
+// Import routes
 const authRoutes = require('./routes/auth');
+const tanksRoutes = require('./routes/tanks'); // Import tank routes
+const suppliersRoutes = require('./routes/suppliers'); // Import supplier routes
+const attendanceRoutes = require('./routes/attendance'); // Import attendance routes
+const fuelPricesRoutes = require('./routes/fuelPrices'); // Import fuel price routes
+const cashLogsRoutes = require('./routes/cashLogs'); // Import cash log routes
 
 // Database connection pool
 const pool = mysql.createPool({
@@ -36,8 +41,13 @@ app.get('/', (req, res) => {
   res.send('Fuel Management System Backend');
 });
 
-// Mount authentication routes
+// Mount routes
 app.use('/api/auth', authRoutes);
+app.use('/api/tanks', tanksRoutes); // Mount tank routes
+app.use('/api/suppliers', suppliersRoutes); // Mount supplier routes
+app.use('/api/attendance', attendanceRoutes); // Mount attendance routes
+app.use('/api/fuel-prices', fuelPricesRoutes); // Mount fuel price routes
+app.use('/api/cash-logs', cashLogsRoutes); // Mount cash log routes
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
