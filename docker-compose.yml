@@ -14,5 +14,25 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  backend:
+    build: ./backend
+    ports:
+      - "89:3000"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: fuel_management
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      PORT: 3000
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "88:80"
+    depends_on:
+      - backend
+
 volumes:
   db_data: 
