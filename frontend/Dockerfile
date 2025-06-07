@@ -3,8 +3,9 @@ FROM node:20 as builder
 WORKDIR /app
 
 COPY package*.json ./
+COPY .npmrc ./
 
-RUN npm install
+RUN npm config set registry "http://registry.npmjs.org/" && npm install
 
 COPY . .
 

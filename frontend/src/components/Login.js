@@ -5,11 +5,31 @@ function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
-    // Here you would typically send the login credentials to your backend
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login successful!', data);
+        // Here you would typically store the token (e.g., in localStorage) and redirect the user
+        alert('Login successful!');
+      } else {
+        console.error('Login failed:', data.message);
+        alert(`Login failed: ${data.message}`);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+      alert('Network error. Please try again.');
+    }
   };
 
   return (
