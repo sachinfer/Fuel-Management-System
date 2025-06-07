@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,8 +22,9 @@ function Login() {
 
       if (response.ok) {
         console.log('Login successful!', data);
-        // Here you would typically store the token (e.g., in localStorage) and redirect the user
         alert('Login successful!');
+        localStorage.setItem('token', data.token);
+        navigate('/dashboard');
       } else {
         console.error('Login failed:', data.message);
         alert(`Login failed: ${data.message}`);
@@ -57,6 +60,9 @@ function Login() {
           />
         </div>
         <button type="submit" className="login-button">Login</button>
+        <p className="register-link">
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </form>
     </div>
   );

@@ -1,6 +1,6 @@
 // User model and database interactions will be defined here 
 
-const { pool } = require('../server');
+const { pool } = require('../config/database');
 const bcrypt = require('bcrypt');
 
 const createUser = async (username, email, password, role) => {

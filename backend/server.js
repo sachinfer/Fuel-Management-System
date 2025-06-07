@@ -1,10 +1,14 @@
 const express = require('express');
-const mysql = require('mysql2/promise'); // Use promise-based version
+const mysql = require('mysql2/promise'); // Keep this for type hints if needed elsewhere, but pool is moved
+const cors = require('cors'); // Import the cors middleware
+// No longer need to import pool here as it's handled in database.js
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors()); // Use cors middleware before your routes
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -13,17 +17,6 @@ const suppliersRoutes = require('./routes/suppliers'); // Import supplier routes
 const attendanceRoutes = require('./routes/attendance'); // Import attendance routes
 const fuelPricesRoutes = require('./routes/fuelPrices'); // Import fuel price routes
 const cashLogsRoutes = require('./routes/cashLogs'); // Import cash log routes
-
-// Database connection pool
-const pool = mysql.createPool({
-  host: 'db', // Service name in docker-compose.yml
-  user: process.env.MYSQL_USER || 'user',
-  password: process.env.MYSQL_PASSWORD || 'password',
-  database: process.env.MYSQL_DATABASE || 'fuel_management',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
 
 // Test database connection
 app.get('/db-test', async (req, res) => {
@@ -51,6 +44,4 @@ app.use('/api/cash-logs', cashLogsRoutes); // Mount cash log routes
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-});
-
-module.exports = { pool }; 
+}); 
