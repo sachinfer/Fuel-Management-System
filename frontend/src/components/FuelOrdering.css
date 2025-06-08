@@ -1,0 +1,20 @@
+.fuel-ordering-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.fuel-ordering-container h2 {
+  margin-bottom: 20px;
+  color: #61dafb;
+}
+
+.fuel-ordering-container p {
+  font-size: 18px;
+} 

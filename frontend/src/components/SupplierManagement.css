@@ -1,0 +1,102 @@
+.supplier-management-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.supplier-management-container h2, .supplier-management-container h3 {
+  color: #61dafb;
+  margin-bottom: 20px;
+}
+
+.supplier-management-container p {
+  font-size: 18px;
+}
+
+.supplier-form-section,
+.supplier-list-section {
+  background-color: #3a3f4b;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.supplier-form .form-group {
+  margin-bottom: 15px;
+}
+
+.supplier-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #c0c0c0;
+}
+
+.supplier-form input[type="text"],
+.supplier-form input[type="email"],
+.supplier-form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #4a4f5b;
+  color: #e0e0e0;
+  font-size: 1em;
+}
+
+.supplier-form input[type="text"]:focus,
+.supplier-form input[type="email"]:focus,
+.supplier-form textarea:focus {
+  outline: none;
+  border-color: #61dafb;
+  box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.5);
+}
+
+.add-supplier-button {
+  background-color: #61dafb;
+  color: #282c34;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.add-supplier-button:hover {
+  background-color: #4fa3d1;
+}
+
+.supplier-list {
+  list-style: none;
+  padding: 0;
+}
+
+.supplier-item {
+  background-color: #4a4f5b;
+  border: 1px solid #555;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.supplier-item p {
+  margin: 0;
+  color: #e0e0e0;
+}
+
+.supplier-item p strong {
+  color: #61dafb;
+} 

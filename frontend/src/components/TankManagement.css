@@ -1,0 +1,20 @@
+.tank-management-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.tank-management-container h2 {
+  margin-bottom: 20px;
+  color: #61dafb;
+}
+
+.tank-management-container p {
+  font-size: 18px;
+} 

@@ -1,0 +1,117 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #3a3f47;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sidebar-header h3 {
+  font-size: 1.8em;
+  color: #61dafb;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu h4 {
+  color: #ccc;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid #4a4f57;
+  padding-bottom: 5px;
+}
+
+.sidebar-menu li {
+  margin-bottom: 5px;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #61dafb;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #282c34;
+  color: white;
+}
+
+/* Adjustments for nested components */
+.dashboard-container,
+.supplier-management-container,
+.fuel-ordering-container,
+.tank-management-container,
+.staff-management-container,
+.attendance-container,
+.price-management-container,
+.cash-settlement-container,
+.point-of-sale-container,
+.fuel-reports-container,
+.sales-reports-container,
+.system-settings-container,
+.user-management-container {
+  min-height: auto; /* Remove min-height from individual pages */
+  background-color: transparent; /* Remove background from individual pages */
+  box-shadow: none; /* Remove shadow from individual pages */
+  padding: 0; /* Remove padding from individual pages */
+  width: 100%;
+  max-width: 100%;
+}
+
+.dashboard-container h2, 
+.supplier-management-container h2,
+.fuel-ordering-container h2,
+.tank-management-container h2,
+.staff-management-container h2,
+.attendance-container h2,
+.price-management-container h2,
+.cash-settlement-container h2,
+.point-of-sale-container h2,
+.fuel-reports-container h2,
+.sales-reports-container h2,
+.system-settings-container h2,
+.user-management-container h2 {
+  margin-top: 0; /* Adjust heading margin */
+}
+
+/* Responsive adjustments for sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .dashboard-layout {
+    flex-direction: column;
+  }
+} 
